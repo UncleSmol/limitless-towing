@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/limitless-towing/static/css/main.4a2f331d.css",
+    "main.js": "/limitless-towing/static/js/main.5a0639f7.js",
+    "static/js/453.4e6250f4.chunk.js": "/limitless-towing/static/js/453.4e6250f4.chunk.js",
+    "static/media/hero-image-1.jpg": "/limitless-towing/static/media/hero-image-1.1adf543319706ce82720.jpg",
+    "static/media/hero-image-3.jpg": "/limitless-towing/static/media/hero-image-3.6a14e7b71ee611ac1f25.jpg",
+    "static/media/emergency-towing.jpg": "/limitless-towing/static/media/emergency-towing.21ee4d5f124276b65c91.jpg",
+    "static/media/hero-image-2.jpg": "/limitless-towing/static/media/hero-image-2.1ded09e7559108ee610e.jpg",
+    "static/media/roadside-assistance.jpg": "/limitless-towing/static/media/roadside-assistance.97b44c00cad251d671ec.jpg",
+    "static/media/long-distance.jpg": "/limitless-towing/static/media/long-distance.d3b9934916e1e3d81eb7.jpg",
+    "static/media/dev-doc-logo.svg": "/limitless-towing/static/media/dev-doc-logo.de797792e2f0976ba27c3a47cbad631e.svg",
+    "static/media/hero-image-4.jpg": "/limitless-towing/static/media/hero-image-4.aedd24b9aba2ed6dd945.jpg",
+    "static/media/limitless-towing-logo.png": "/limitless-towing/static/media/limitless-towing-logo.64466ecc4a0b6d776d80.png",
+    "static/media/owner.jpg": "/limitless-towing/static/media/owner.d1046b12ca0ccc10440e.jpg",
+    "static/media/accident-recovery.jpg": "/limitless-towing/static/media/accident-recovery.f68ac00db224d4dfaa22.jpg",
+    "static/media/about-hero.jpg": "/limitless-towing/static/media/about-hero.ce6eb2c2e39a1f41be57.jpg",
+    "index.html": "/limitless-towing/index.html",
+    "main.4a2f331d.css.map": "/limitless-towing/static/css/main.4a2f331d.css.map",
+    "main.5a0639f7.js.map": "/limitless-towing/static/js/main.5a0639f7.js.map",
+    "453.4e6250f4.chunk.js.map": "/limitless-towing/static/js/453.4e6250f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a2f331d.css",
+    "static/js/main.5a0639f7.js"
+  ]
+}
