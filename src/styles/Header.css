@@ -1,0 +1,282 @@
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-4);
+}
+
+/* Logo styles */
+.logo-container {
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  transition: all 0.3s ease;
+  transform-origin: left center;
+  z-index: 1000;
+}
+
+/* Navigation menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-6);
+  position: relative; /* For absolute positioning of sig-logo */
+}
+
+.nav-link {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-blue);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+  height: 100%S;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-red);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-red);
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:active {
+  transform: translateY(0);
+}
+
+/* Signature logo styles */
+.sig-logo-container {
+  text-align: center;
+  padding: var(--spacing-4) 0;
+  display: none; 
+  height: 120px;
+}
+
+.sig-logo {
+  max-width: 120px;
+  height: auto;
+  opacity: 0.5;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sig-logo:hover {
+  opacity: 1;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
+
+/* Phone link styles */
+.phone-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  background: var(--blue-gradient);
+  color: var(--white) !important;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--border-radius-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phone-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.phone-link:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.phone-link::after {
+  display: none;
+}
+
+.phone-icon {
+  font-size: var(--font-size-lg);
+}
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-blue);
+  border-radius: var(--border-radius-full);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Mobile menu overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .nav-menu {
+    gap: var(--spacing-4);
+  }
+  
+  .nav-link {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 45px;
+  }
+  
+  .header-container {
+    padding: var(--spacing-3);
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    background: var(--white);
+    padding: var(--spacing-20) var(--spacing-4) var(--spacing-4);
+    box-shadow: var(--shadow-xl);
+    transition: right 0.5s ease;
+    z-index: 1001;
+    gap: var(--spacing-6);
+    overflow-y: auto;
+    display: flex;
+    justify-content: flex-start; /* Start from top */
+  }
+  
+  .nav-menu.open {
+    right: 0;
+  }
+  
+  .close-menu {
+    display: block;
+  }
+  
+  .phone-link {
+    margin-top: var(--spacing-4);
+  }
+  
+  /* Show signature logo in mobile menu */
+  .sig-logo-container {
+    display: block;
+    margin-top: auto; /* Push to bottom */
+    width: 100%;
+  }
+  
+  /* Mobile menu toggle animations will be handled by GSAP instead of CSS classes */
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 35px;
+  }
+  
+  .header-container {
+    padding: var(--spacing-2);
+  }
+  
+  .nav-menu {
+    width: 80%;
+  }
+  
+  .phone-number {
+    font-size: var(--font-size-sm);
+  }
+  
+  .sig-logo {
+    max-width: 100px;
+  }
+}
+
+/* Ensure header is always visible initially */
+.header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure mobile menu toggle is always visible */
+.mobile-menu-toggle {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--primary-red);
+  width: 0%;
+  transition: width 0.1s ease;
+}
