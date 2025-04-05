@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/limitless-towing/static/css/main.4a2f331d.css",
-    "main.js": "/limitless-towing/static/js/main.5a0639f7.js",
+    "main.css": "/limitless-towing/static/css/main.c7f4bc12.css",
+    "main.js": "/limitless-towing/static/js/main.404af2f5.js",
     "static/js/453.4e6250f4.chunk.js": "/limitless-towing/static/js/453.4e6250f4.chunk.js",
     "static/media/hero-image-1.jpg": "/limitless-towing/static/media/hero-image-1.1adf543319706ce82720.jpg",
     "static/media/hero-image-3.jpg": "/limitless-towing/static/media/hero-image-3.6a14e7b71ee611ac1f25.jpg",
@@ -16,12 +16,12 @@
     "static/media/accident-recovery.jpg": "/limitless-towing/static/media/accident-recovery.f68ac00db224d4dfaa22.jpg",
     "static/media/about-hero.jpg": "/limitless-towing/static/media/about-hero.ce6eb2c2e39a1f41be57.jpg",
     "index.html": "/limitless-towing/index.html",
-    "main.4a2f331d.css.map": "/limitless-towing/static/css/main.4a2f331d.css.map",
-    "main.5a0639f7.js.map": "/limitless-towing/static/js/main.5a0639f7.js.map",
+    "main.c7f4bc12.css.map": "/limitless-towing/static/css/main.c7f4bc12.css.map",
+    "main.404af2f5.js.map": "/limitless-towing/static/js/main.404af2f5.js.map",
     "453.4e6250f4.chunk.js.map": "/limitless-towing/static/js/453.4e6250f4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a2f331d.css",
-    "static/js/main.5a0639f7.js"
+    "static/css/main.c7f4bc12.css",
+    "static/js/main.404af2f5.js"
   ]
 }
