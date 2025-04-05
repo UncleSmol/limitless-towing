@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import gsap from '../lib/gsap-plugins'; // Updated import for ScrollToPlugin
 import '../styles/Header.css';
 import logoImage from '../images/limitless-towing-logo.png';
 import sigLogo from '../sig/dev-doc-logo.svg';
 
 const Header = () => {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const logoRef = useRef(null);
@@ -13,8 +15,16 @@ const Header = () => {
   const toggleRef = useRef(null);
   const overlayRef = useRef(null);
   const scrollIndicatorRef = useRef(null);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
+    // Set active section based on current path
+    const path = location.pathname;
+    if (path === '/') setActiveSection('home');
+    else if (path === '/services') setActiveSection('services');
+    else if (path === '/about') setActiveSection('about');
+    else if (path === '/contact') setActiveSection('contact');
+    
     // Initial GSAP animations - modified to avoid conflicts
     const tl = gsap.timeline();
     
@@ -30,7 +40,6 @@ const Header = () => {
     })
     .from(navRef.current.children, {
       opacity: 1,
-      // y: 20,
       stagger: 0.1,
       duration: 0.5,
       ease: "power3.out"
@@ -49,7 +58,7 @@ const Header = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
   // Handle scroll effects
   const handleScroll = () => {
@@ -99,7 +108,7 @@ const Header = () => {
         ease: 'power3.out'
       });
       
-      // Animate hamburger to X - fixed to use DOM direct manipulation instead of className
+      // Animate hamburger to X
       gsap.to(toggleRef.current.children[0], {
         rotation: 45,
         y: 9,
@@ -162,7 +171,7 @@ const Header = () => {
         ease: 'power3.in'
       });
       
-      // Animate X back to hamburger - fixed to use DOM direct manipulation
+      // Animate X back to hamburger
       gsap.to(toggleRef.current.children[0], {
         rotation: 0,
         y: 0,
@@ -191,23 +200,58 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Handle menu closure when a link is clicked
+  const handleLinkClick = () => {
+    if (isMenuOpen) {
+      toggleMobileMenu();
+    }
+  };
+
+
+
   return (
     <header ref={headerRef} className="header">
       <div className="header-container">
         <div className="logo-container">
-          <img 
-            ref={logoRef}
-            src={logoImage} 
-            alt="Limitless Towing Logo" 
-            className="logo"
-          />
+          <Link to="/" onClick={handleLinkClick}>
+            <img 
+              ref={logoRef}
+              src={logoImage} 
+              alt="Limitless Towing Logo" 
+              className="logo"
+            />
+          </Link>
         </div>
         
         <nav ref={navRef} className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
-          <a href="#home" className="nav-link" onClick={() => isMenuOpen && toggleMobileMenu()}>HOME</a>
-          <a href="#services" className="nav-link" onClick={() => isMenuOpen && toggleMobileMenu()}>SERVICES</a>
-          <a href="#about" className="nav-link" onClick={() => isMenuOpen && toggleMobileMenu()}>ABOUT US</a>
-          <a href="#contact" className="nav-link" onClick={() => isMenuOpen && toggleMobileMenu()}>CONTACT US</a>
+          <Link 
+            to="/" 
+            className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} 
+            onClick={handleLinkClick}
+          >
+            HOME
+          </Link>
+          <Link 
+            to="/services" 
+            className={`nav-link ${activeSection === 'services' ? 'active' : ''}`} 
+            onClick={handleLinkClick}
+          >
+            SERVICES
+          </Link>
+          <Link 
+            to="/about" 
+            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} 
+            onClick={handleLinkClick}
+          >
+            ABOUT US
+          </Link>
+          <Link 
+            to="/contact" 
+            className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} 
+            onClick={handleLinkClick}
+          >
+            CONTACT US
+          </Link>
           <a href="tel:+27829518245" className="nav-link phone-link">
             <span className="phone-icon">📞</span> 
             <span className="phone-number">082 951 8245</span>
@@ -242,7 +286,7 @@ const Header = () => {
       {/* Mobile menu overlay */}
       <div 
         ref={overlayRef} 
-        className="menu-overlay"
+        className={`menu-overlay ${isMenuOpen ? 'active' : ''}`}
         onClick={toggleMobileMenu}
       ></div>
     </header>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Syne+Mono&family=Yatra+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   /* Primary Colors */
@@ -32,9 +32,9 @@
   --light-gradient: linear-gradient(135deg, var(--light-blue), var(--light-red));
   
   /* Typography - Font Families */
-  --font-primary: 'Gluten', cursive;    /* Primary font for headings and emphasis */
-  --font-secondary: 'Yatra One', cursive;        /* Secondary font for subheadings */
-  --font-tertiary: 'Syne Mono', cursive;          /* Tertiary font for accents and special elements */
+  --font-primary: 'Kodchasan', cursive;    /* Primary font for headings and emphasis */
+  --font-secondary: 'Kodchasan', cursive;        /* Secondary font for subheadings */
+  --font-tertiary: 'MuseoModerno', cursive;          /* Tertiary font for accents and special elements */
   
   /* Font Weights */
   --font-weight-regular: 400;
