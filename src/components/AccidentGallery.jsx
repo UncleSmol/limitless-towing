@@ -1,7 +1,18 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/AccidentGallery.css';
+
+// Import images
+import collision1 from '../images/collision-1.jpg';
+import collision2 from '../images/collision-2.jpg';
+import collision3 from '../images/collision-3.jpg';
+import roadsideImg from '../images/roadside-img.png';
+import rollover1 from '../images/rollover-1.jpg';
+import rollover2 from '../images/rollover-2.jpg';
+import rollover3 from '../images/rollover-3.jpg';
+import rollover4 from '../images/rollover-4.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,11 +23,11 @@ const sampleAccidents = [
     title: 'Highway Collision',
     date: '2023-05-15',
     location: 'N1 Highway, Midrand',
-    description: 'Multiple vehicle collision requiring heavy-duty towing and recovery.',
+    description: 'Multiple vehicle collision requiring flatbed towing and recovery.',
     severity: 'High',
-    attendingTower: 'Heavy Duty Rig #3',
+    attendingTower: 'Flatbed #3',
     staff: 'John Doe, Sam Smith',
-    imageUrls: 'https://source.unsplash.com/random/800x600/?accident,tow-truck,1, https://source.unsplash.com/random/800x600/?accident,tow-truck,2, https://source.unsplash.com/random/800x600/?accident,tow-truck,3'
+    imageUrls: `${collision1}, ${collision2}, ${collision3}`
   },
   {
     id: 2,
@@ -27,7 +38,7 @@ const sampleAccidents = [
     severity: 'Low',
     attendingTower: 'Flatbed #2',
     staff: 'Mike Johnson',
-    imageUrls: 'https://source.unsplash.com/random/800x600/?breakdown,tow-truck,1, https://source.unsplash.com/random/800x600/?breakdown,tow-truck,2'
+    imageUrls: `${roadsideImg}`
   },
   {
     id: 3,
@@ -38,7 +49,7 @@ const sampleAccidents = [
     severity: 'Critical',
     attendingTower: 'Heavy Recovery Unit #1',
     staff: 'David Williams, Robert Brown, James Taylor',
-    imageUrls: 'https://source.unsplash.com/random/800x600/?truck,accident,1, https://source.unsplash.com/random/800x600/?truck,accident,2, https://source.unsplash.com/random/800x600/?truck,accident,3, https://source.unsplash.com/random/800x600/?truck,accident,4'
+    imageUrls: `${rollover1}, ${rollover2}, ${rollover3}, ${rollover4}`
   }
 ];
 

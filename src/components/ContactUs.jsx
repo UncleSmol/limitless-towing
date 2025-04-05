@@ -42,7 +42,7 @@ const ContactUs = () => {
               <div>
                 <h3>Address</h3>
                 <p>26 Judy Street, Modelpark</p>
-                <address>Witbank, South Africa</address>
+                <address>Witbank, Mpumalanga, RSA</address>
               </div>
             </div>
             
