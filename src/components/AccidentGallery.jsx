@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/AccidentGallery.css';
@@ -146,7 +147,7 @@ const AccidentGallery = () => {
           
           <div className="gallery-cta">
             <p>We have attended numerous incidents and provided swift recovery services.</p>
-            <a href="/services" className="btn btn-primary">View Our Services</a>
+            <Link to="/services" className="btn btn-primary">View Our Services</Link>
           </div>
         </div>
       </section>

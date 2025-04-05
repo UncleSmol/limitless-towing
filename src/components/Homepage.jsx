@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/Homepage.css';
@@ -99,7 +100,7 @@ const Homepage = () => {
               <a href="tel:+27829518245" className="btn btn-primary" aria-label="Call emergency towing service">
                 <span className="phone-icon" aria-hidden="true">📞</span> Emergency Call
               </a>
-              <a href="/services" className="btn btn-secondary">Our Services</a>
+              <Link to="/services" className="btn btn-secondary">Our Services</Link>
             </div>
           </div>
         </section>
