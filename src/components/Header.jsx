@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import gsap from '../lib/gsap-plugins'; // Updated import for ScrollToPlugin
 import '../styles/Header.css';
-import logoImage from '../images/limitless-towing-logo.png';
+import logoImage from '../images/limitless-towing-logo1.png';
 import sigLogo from '../sig/dev-doc-logo.svg';
 
 const Header = () => {

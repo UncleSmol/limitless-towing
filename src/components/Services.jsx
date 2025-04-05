@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/Homepage.css';  // Keeping the same CSS import
@@ -12,6 +12,8 @@ const Services = () => {
   const servicesRef = useRef(null);
   const [expandedService, setExpandedService] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
+  const [truncatedDescriptions, setTruncatedDescriptions] = useState({});
+  const CHAR_LIMIT = 150;
 
   const toggleService = (index) => {
     setExpandedService(expandedService === index ? null : index);
@@ -24,6 +26,38 @@ const Services = () => {
 
   const handleCloseModal = () => {
     setSelectedService(null);
+  };
+
+  // Function to truncate text
+  const truncateText = (text, limit) => {
+    if (text.length <= limit) return text;
+    return text.slice(0, limit) + '...';
+  };
+
+  // Initialize truncated descriptions
+  useEffect(() => {
+    const truncated = {};
+    services.forEach((service, index) => {
+      truncated[index] = {
+        text: truncateText(service.fullDesc, CHAR_LIMIT),
+        isExpanded: false
+      };
+    });
+    setTruncatedDescriptions(truncated);
+  }, []);
+
+  // Toggle between truncated and full description
+  const toggleDescription = (index, e) => {
+    e.stopPropagation(); // Prevent card flip
+    setTruncatedDescriptions(prev => ({
+      ...prev,
+      [index]: {
+        text: prev[index].isExpanded 
+          ? truncateText(services[index].fullDesc, CHAR_LIMIT)
+          : services[index].fullDesc,
+        isExpanded: !prev[index].isExpanded
+      }
+    }));
   };
 
   return (
@@ -53,7 +87,19 @@ const Services = () => {
                   </div>
                   <div className="service-card-back">
                     <h3>{service.title}</h3>
-                    <p className="service-full-desc">{service.fullDesc}</p>
+                    <div className="service-desc-container">
+                      <p className="service-full-desc">
+                        {truncatedDescriptions[index]?.text || service.fullDesc}
+                        {service.fullDesc.length > CHAR_LIMIT && (
+                          <button 
+                            className="read-more-btn"
+                            onClick={(e) => toggleDescription(index, e)}
+                          >
+                            {truncatedDescriptions[index]?.isExpanded ? 'Read Less' : 'Read More'}
+                          </button>
+                        )}
+                      </p>
+                    </div>
                     <button 
                       className="btn btn-secondary"
                       onClick={(e) => handleOpenModal(service, e)}
