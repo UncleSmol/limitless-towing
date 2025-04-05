@@ -171,7 +171,7 @@ const AccidentGallery = () => {
                 
                 <img 
                   src={selectedAccident.imageUrls.split(', ')[currentImageIndex]} 
-                  alt={`${selectedAccident.title} - Image ${currentImageIndex + 1}`} 
+                  alt={`${selectedAccident.title} - ${currentImageIndex + 1}`} 
                 />
                 
                 {selectedAccident.imageUrls.split(', ').length > 1 && (
